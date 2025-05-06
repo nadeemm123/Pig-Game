@@ -58,6 +58,32 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--active');
+
+      const modal = document.querySelector('.modal');
+      modal.classList.remove('hidden');
+      const overlay = document.querySelector('.overlay');
+      overlay.classList.remove('hidden');
+      const closeModal = function () {
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+      };
+      const closeButton = document.querySelector('.close-modal');
+      closeButton.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      //.winplayer this h1 tag i wnat to show the winner
+      const winPlayer = document.querySelector('.winplayer');
+      winPlayer.textContent = `🎉 Player ${activePlayer + 1} wins! 🎉`;
+      //player1finalscore and player2finalscore  this is class in p tag i wnat to player final score in modal content
+      const player1FinalScore = document.querySelector('.player1finalscore');
+      const player2FinalScore = document.querySelector('.player2finalscore');
+      player1FinalScore.textContent = `Player 1 final score: ${totalScores[0]}`;
+      player2FinalScore.textContent = `Player 2 final score: ${totalScores[1]}`;
     } else {
       //swith player
       switchPlayer();

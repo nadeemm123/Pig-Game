@@ -32,9 +32,26 @@
       </section>
 
       <img src="dice-5.png" alt="Playing dice" class="dice" />
+      <p class="infomssage">
+        🎯 First player to reach 100 points wins the game!
+      </p>
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
+
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1 class="winplayer"></h1>
+        <p class="winmessage">
+          Congratulations! You have won the game. You can now start a new game.
+        </p>
+        <p class="finalscore">
+          <span class="player1finalscore"></span><br /><br />
+          <span class="player2finalscore"></span>
+        </p>
+      </div>
+
+      <div class="overlay hidden"></div>
     </main>
     <script src="script.js"></script>
   </body>
